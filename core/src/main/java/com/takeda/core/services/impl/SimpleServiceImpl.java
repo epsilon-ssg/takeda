@@ -24,7 +24,7 @@ import com.takeda.core.services.UserConfigurationService;
 @Designate(ocd = UserConfigurationService.class,factory = true)
 public class SimpleServiceImpl implements SimpleService {
 	
-	/** The Constant LOGGER. */
+	/** The Constant LOGGER. */ 
 	private static final Logger LOGGER = LoggerFactory.getLogger(SimpleServiceImpl.class);
 	 
 	/** The config. */
