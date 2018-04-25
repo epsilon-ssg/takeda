@@ -111,7 +111,7 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>com.takeda.takeda</Bundle-SymbolicName>
-
+					<Sling-Model-Packages>com.takeda.core.models</Sling-Model-Packages>
                     </instructions>
                 </configuration>
             </plugin>

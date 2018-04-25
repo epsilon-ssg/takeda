@@ -14,7 +14,7 @@ import org.osgi.service.metatype.annotations.Option;
  * @author ppalla
  */
 @ObjectClassDefinition(name = "Sample User Account Configuration", description = "Configure the user Details")
-public  @interface UserConfigurationService {
+public @interface UserConfigurationService {
 
 	
 	/**

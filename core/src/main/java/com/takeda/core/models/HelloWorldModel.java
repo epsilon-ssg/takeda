@@ -10,6 +10,7 @@ import javax.inject.Named;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,14 +38,17 @@ public class HelloWorldModel {
     
     /** The first name. */
     @Inject
+    @Optional
     private String firstName;
     
     /** The last name. */
     @Inject
+    @Optional
     private String lastName;
     
     /** The technology. */
     @Inject
+    @Optional
     private String technology;
        
     /** The message. */
