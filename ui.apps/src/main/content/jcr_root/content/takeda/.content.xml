@@ -2,6 +2,9 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/takeda/settings/wcm/templates/.*]"
+        jcr:primaryType="cq:PageContent"/>
     <rep:policy/>
-    <empty-page/>
+    <nesina/>
 </jcr:root>

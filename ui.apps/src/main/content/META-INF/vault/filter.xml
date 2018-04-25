@@ -10,5 +10,5 @@
 
     <filter root="/etc/clientlibs/takeda"/>
 
-
+	<filter root="/content/takeda"/>
 </workspaceFilter>

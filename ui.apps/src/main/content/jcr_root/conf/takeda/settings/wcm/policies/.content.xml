@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
-    jcr:primaryType="cq:Page"/>
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <takeda jcr:primaryType="nt:unstructured">
+        <components jcr:primaryType="nt:unstructured">
+            <nesina jcr:primaryType="nt:unstructured">
+                <structure jcr:primaryType="nt:unstructured">
+                    <page jcr:primaryType="nt:unstructured"/>
+                </structure>
+            </nesina>
+        </components>
+    </takeda>
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <policy_191329990615284
+                        jcr:lastModified="{Date}2018-04-25T15:57:55.734+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="nesina-policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[group:General,group:Nesina]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_191329990615284>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+</jcr:root>
