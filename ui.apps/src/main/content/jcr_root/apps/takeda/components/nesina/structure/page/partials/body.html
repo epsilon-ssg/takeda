@@ -14,11 +14,9 @@
     limitations under the License.
 */-->
 
-<div>
-	<sly data-sly-resource="${'headerpar' @ resourceType='wcm/foundation/components/parsys'}"/>
-</div>
-<div class="container">
-	<sly data-sly-resource="${'parcontent' @ resourceType='wcm/foundation/components/parsys'}"/>
-</div>
+<sly data-sly-use.templatedContainer="com.day.cq.wcm.foundation.TemplatedContainer"
+     data-sly-repeat.child="${templatedContainer.structureResources}"
+     data-sly-resource="${child.path @ resourceType=child.resourceType, decorationTagName='div'}">
+</sly>
 
 
