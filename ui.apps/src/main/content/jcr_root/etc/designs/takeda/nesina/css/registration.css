@@ -1,0 +1,1945 @@
+
+/* -----------------------------------------
+    Registration
+----------------------------------------- */
+sub, sup {
+position: relative;
+font-size: 75%;
+line-height: 0;
+vertical-align: baseline;
+}
+
+sup{top: -.24em;}
+
+#wizard{
+    width:940px;
+    padding-top:0px;
+}
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.bg-img.visible-phone {
+    height: auto;
+    bottom: 0;
+}
+.well {
+    border: 1px #000000 solid;
+    background: transparent;
+    padding: 30px 10px;
+    margin: 25px 0 15px;
+}
+.pad {
+    padding: 40px 193px 2% 198px;
+}
+.pad-all {
+    padding: 5% 12%
+}
+.divider {
+    display: inline-block;
+    padding-left: 15px;
+}
+.collapse.in {
+    overflow: visible
+}
+
+.btn,
+.btn:focus,
+.btn:active {
+    display: inline-block;
+    *display: inline;
+    /* IE7 inline-block hack */
+    *zoom: 1;
+    padding: 5px 30px;
+    margin-bottom: 0;
+    /*font-size: 19px;*/
+    line-height: 22px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #ffffff;
+    text-shadow: 0px -0.9px 0.2px rgba(0, 0, 0, 0.50);
+    background-color: #569bbe;
+    background-image: -webkit-gradient(linear, 0 0, 0 80%, from(#096c9e), to(#569bbe));
+    background-image: -webkit-linear-gradient(bottom, #096c9e 9%, #569bbe 80%);
+    background-image: -moz-linear-gradient(bottom, #096c9e 9%, #569bbe 80%);
+    background-image: -o-linear-gradient(bottom, #096c9e 9%, #569bbe 80%);
+    background-image: -ms-linear-gradient(bottom, #096c9e 9%, #569bbe 80%);
+    background-image: linear-gradient(to top, #096c9e 9%, #569bbe 80%);
+    background-repeat: repeat-x;
+    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc3NCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMDAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwOTZDOUUiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiM1NjlCQkUiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2c3NCkiIC8+Cjwvc3ZnPg==);
+    /*border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);*/
+    *background-color: #569bbe;
+    /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+    /* filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    /*border: 1px solid #cccccc;*/
+    *border: 0;
+    border-bottom-color: #22729b;
+    -webkit-border-radius: 17px/18px 18px 17px 17px !important;
+    -moz-border-radius: 17px/18px 18px 17px 17px !important;
+    border-radius: 17px/18px 18px 17px 17px !important;
+    *margin-left: .3em;
+    -webkit-box-shadow: 0 0 #026ba0, 0 1px 3px rgba(0,0,0,.6);
+    -moz-box-shadow: 0 0 #026ba0, 0 1px 3px rgba(0,0,0,.6);
+    box-shadow: 0 0 #026ba0, 0 1px 3px rgba(0,0,0,.6);
+    /**/
+    font-weight: bold;
+    background-position: 0 0;
+    vertical-align: top;
+
+    /**/
+}
+.btn:hover {
+    color: #ffffff;
+    background-color: #569bbe;
+    background-image: -webkit-gradient(linear, 0 0, 0 80%, from(#569bbe), to(#096c9e));
+    background-image: -webkit-linear-gradient(bottom, #569bbe 9%, #096c9e 80%);
+    background-image: -moz-linear-gradient(bottom, #569bbe 9%, #096c9e 80%);
+    background-image: -o-linear-gradient(bottom, #569bbe 9%, #096c9e 80%);
+    background-image: -ms-linear-gradient(bottom, #569bbe 9%, #096c9e 80%);
+    background-image: linear-gradient(to top, #569bbe 9%, #096c9e 80%);
+    background-repeat: repeat-x;
+    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc0NTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwOTZDOUUiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiM1NjlCQkUiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2c0NTEpIiAvPgo8L3N2Zz4=);
+}
+
+
+
+
+#wizard h1, #wizard  h2 {
+    color:#c35300;
+    text-rendering:optimizelegibility;
+    line-height: 44px;
+    margin: 11px 0;
+}
+
+h1{text-transform:uppercase; font-family:"TradeGothic-W01-Cn18", sans-serif;}
+
+h2 {
+    font-size: 35px
+}
+#isi h2.headline{font-size: 34px}
+h3 {
+    font-size: 24px
+}
+h3.accordion-heading{
+    margin:37px 0 25px 0;
+    color: #e5412c;
+}
+
+.header-wrap h3.accordion-heading {
+text-shadow: 0px 1.5px 0px #ffffff;
+-webkit-transform: translateZ(0);
+}
+
+.accordion-body label {
+        margin: 0px 0px 5px 0px;
+    }
+ .accordion-body p{margin-bottom:0px;}
+
+fieldset {
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0em;
+    -webkit-padding-start: 0em;
+    -webkit-padding-end: 0em;
+    -webkit-padding-after: 0em;
+    margin: 0;
+    padding: 0;
+}
+#wizard {
+    position: relative
+}
+/*#wizard .steps{position:absolute;top:0;left:0;}
+#wizard .steps>li[class^="step"]{border:0;border-radius:50%;}
+#wizard .steps>li.completed{width:auto;}*/
+#wizard strong,
+#wizard {
+    color: #222
+}
+
+#wizard .form.well,
+#wizard .form.well .well {
+    border-color: rgb(125,191,227);
+    border-color: rgba(125,191,227,0.5);
+    background-color: rgb(163,205,227);
+    filter: alpha(opacity=30);
+    /*background-color: rgba(163,205,227,0.3);*/
+    background-color: #dfeaf2;
+}
+
+
+.savingscard #wizard .form.well.pad {
+    padding: 40px 170px 2%;
+}
+.unsubscribe #wizard .form.well.pad {
+    padding: 40px 150px 2%;
+}
+.unsubscribe #wizard.reason .form.well.pad {
+    padding: 40px 193px 2% 198px;
+}
+#wizard .form.well .well {
+    background: transparent;
+    font-size: 14px;
+}
+#wizard .form.well .well p {
+    margin-bottom: 5px
+}
+
+    #wizard .accordion-group.active {
+        visibility: visible;
+        height: auto;
+        margin-bottom: 15px;
+        /*border-width: 1px; - REMOVED BORDER AROUND FORMS */
+    }
+    /*#wizard .form-inline * { line-height: 32px !important; }*/
+    #wizard .form-inline select {
+        line-height: 16px !important
+    }
+/*  #wizard .accordion-group { padding: 0 15px; }_NO__DOTCOMMA__AFTER__*/
+#wizard .accordion-group h3 span.number,
+#wizard .accordion-group h3 span.step {
+    font-weight: normal;
+    color: #000000;
+    font-family:"TradeGothic-W01-Cn18", sans-serif;
+    margin: 0;
+}
+
+.control-group{margin-bottom:15px;}
+
+
+#wizard .doblabel {
+    line-height: 32px
+}
+/* progress tracker */
+.accordion .progress {
+    height: 60px
+}
+.accordion .progress ol {
+    margin: 0 0 0 30px
+}
+/* error states */
+
+
+input.error,
+select.error,
+input.input-validation-error,
+select.input-validation-error
+ {
+    border: red 1px solid;
+    color: #000 !important;
+}
+
+/*
+#step1error,
+#step2error,
+#step3error,
+#step4error {
+    display: none
+}
+*/
+/*.errorbox { position: absolute; width: 100%; left: 0; }_NO__DOTCOMMA__AFTER__*/
+.errorbox {
+    margin: 20px -194px 40px -199px;
+    padding: 20px 194px 20px 198px;
+    background-color: #ffffff;
+    border-top: rgba(125,191,227,0.5) solid 1px;
+    color: #d90303;
+    font: TradeGothicLTStd 12px;
+    -moz-box-shadow: inset 0 0 5px #888;
+    -webkit-box-shadow: inset 0 0 5px#888;
+    box-shadow: inner 0 0 5px #888;
+    display:none;
+    font-size: 19px;
+}
+
+.unsubscribe .errorbox {
+    margin: 20px -150px 40px;
+}
+
+.unsubscribe .reason .errorbox {
+     margin: 20px -194px 40px -199px;
+}
+.errorbox strong {
+	color:#d90303 ! important;
+    font-family:"Trade Gothic W01 Bold 2";
+    font-style:normal;
+}
+
+.errorbox a, .errorbox p{color: #d90303}
+.errorbox ul li {
+    margin:5px 0px 5px 20px;
+    line-height:normal;
+    list-style-position: inside;
+    list-style: initial;
+}
+
+.errorbox b {
+ font-family:"Trade Gothic W01 Bold 2";
+    font-style:normal;
+
+}
+
+.errorbox p {
+  margin-bottom: 26px;
+}
+
+
+
+.field-validation-error:before{
+    content: '\2022';
+    margin-right:5px;
+}
+.field-validation-error{
+    text-indent:20px;
+}
+.field-validation-error:after { content:"\A"; white-space:pre; }
+
+.errorbox ul li span:empty,
+.field-validation-valid:empty,
+.field-validation-error:empty,
+.errorbox ul li:empty,
+.errorbox ul li span:empty + li{
+    list-style:none;
+    display:none;
+}
+
+.control-group .checkbox .error,
+.control-group .radio .error,
+.control-group input.error,
+.control-group select.error,
+.control-group textarea.error {
+    color: #222
+}
+.control-group input[disabled].error,
+.control-group select[disabled].error,
+.control-group textarea[disabled].error {
+    border-color: #BFBFBF
+}
+input[disabled]::-webkit-input-placeholder,
+textarea[disabled]::-webkit-input-placeholder {
+    color: #999
+}
+#registration_status {
+    display: block;
+    height: 62px;
+    width: 539px;
+}
+#registration_status.tall {
+    display: block;
+    height: 40px;
+    width: 539px;
+}
+#registration_status ul {
+    height: 45px;
+    left: 201px;
+    list-style-type: none;
+    position: absolute;
+    top: 32px;
+    width: 545px;
+    z-index: 20;
+}
+/* IE9 adjustment */
+#registration_status.tall ul {
+    top: 33px;
+}
+#registration_status li {
+    background: url("/Content/Images/registration_status_inactive.png") no-repeat scroll left top transparent;
+    color: #6391a9;
+    display: inline;
+    float: left;
+    font-family: 'TradeGothicW01-BoldExte';
+    font-size: 24px;
+    font-weight: normal;
+    height: 47px;
+    line-height: 42px;
+    margin: 0px 115px 0 1px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    text-indent: 12px;
+    text-shadow: -1px 1px 0px rgba(255, 255, 255, 0.8);
+    -webkit-transform: translateZ(0);
+    width: 48px;
+    z-index: 2;
+}
+#registration_status li.active {
+    background: url("/Content/Images/registration_status_active.png") no-repeat scroll left top transparent;
+    color: #FFFFFF;
+    text-shadow: 1px -2px 0px rgba(0, 0, 0, 0.3);
+    -webkit-transform: translateZ(0);
+    text-indent: 13px;
+}
+#registration_status li.hover {
+    color: #FFFFFF;
+    text-shadow: 0px -0.9px 0.2px rgba(0, 0, 0, 0.50);
+    -webkit-transform: translateZ(0);
+}
+#registration_status li.complete {
+    background: url("/Content/Images/registration_status_complete.png") no-repeat scroll left top transparent;
+    text-indent: -9999em;
+}
+#registration_status li.last {
+    margin-right: 0;
+    margin-left: 0px;
+}
+#registration_status #progress {
+    background: url("/Content/Images/registration_status_progress.png") no-repeat scroll left top transparent;
+    height: 48px;
+    left: 198px;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    width: 539px;
+    z-index: 3;
+}
+#registration_status.tall #progress {
+    top: 30px
+}
+/* IE9 fix */
+.lt-ie10 #registration_status.tall #progress {
+    top: 30px;
+}
+.lt-ie10 #registration_status ul {
+    top: 32px;
+}
+
+#registration_status #progress_status {
+    background: url("/Content/Images/registration_status_progress_active.png") repeat-x;
+    height: 7px;
+    left: 10px;
+    position: absolute;
+    top: 22px;
+    width: 0;
+}
+#eligibilitybox {
+    display: none;
+    width: 360px;
+    line-height: 1.1em;
+    padding-top: 15px;
+    color: #3A89AF;
+    margin-left:8px;
+}
+#formactions a {
+    line-height: 34px
+}
+.formnavigation {
+    vertical-align: middle
+}
+    /*.formnavigation span {
+        margin-right: 20px;
+        margin-top: 5px;
+    }*/
+
+
+#wizard.step2wizard input, #wizard.step2wizard select {
+margin-right: 10px;
+}
+
+#wizard.step2wizard #ZipCode {
+width: 26%;
+margin-right: -26%;
+}
+
+#wizard.step2wizard #DateOfBirth_Year {
+width: 26%;
+margin-right: -26%;
+}
+#wizard.step2wizard #State{
+    width: 152px;
+}
+
+
+#step3 .control-group.form-inline .checkbox.input-medium {
+    vertical-align: top;
+    margin: 5px 0;
+}
+#step3 .control-group.form-inline .checkbox.input-medium .radioLabel {
+    display: inline-block
+}
+
+#step3 div.checkboxes label {
+    line-height: 17px;
+}
+
+#step3 small {
+    font: 12px TradeGothicLTStd-Cn18;
+    color: #464646;
+}
+
+
+[class*="Taking_"] {
+    background-color: #d5e5ed;
+    border: none;
+    margin: 5px 0;
+    position: relative;
+    padding: 20px 30px 20px 90px;
+    display: none;
+}
+.Taking_7 {
+    margin: 60px 0px 5px 0px;
+}
+[class*="Taking_"] * {
+    min-height: auto !important
+}
+
+#nutrisystemLogo {
+    padding-top: 10px;
+    text-align: center;
+}
+#nutrisystemLogo img {
+    width: 190px
+}
+#nutriDisclaimer {
+    line-height: 16px;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 10px;
+    color:#464646;
+}
+
+#nutriCheckbox label{color:#464646;}
+
+.unsubInput {
+    font-size: 16px;
+    line-height: 16px;
+    padding-top: 8px;
+}
+
+
+
+.well a {color: #08618c; font-size: 16px; vertical-align: middle; padding: 0 20px 0 0; margin-top: 5px;}
+.well a:hover {color: #0A4765;}
+
+.well a.red {color: #B2292E; font-size: 16px; vertical-align: middle; padding: 0; margin-top: 5px;}
+.well a.red:hover{color:#F90009;}
+
+.well a.showEligibility {text-decoration:none;}
+.well a.showEligibility span{text-decoration:underline;}
+
+/* All Desktop */
+
+@media (min-width: 768px) {
+    /*.well button.btn {position: relative;right: 35%;}*/
+
+.well button.btn,.well  .btn.red,.well  .btn.red:focus,.well  .btn.red:active{clear:both;position: relative; width:auto; margin:0px;padding: 6px 30px;}
+.well button.btn.unsubscribe, .well button.btn.unsubscribe:active, .well button.btn.unsubscribe:focus{margin-top:20px;right:0;float:right;}
+ .well button.btn.reset{margin-top:20px;right:0;}
+.noneligible .well .btn, .noneligible .well .btn.blue, .noneligible .well .btn.red{width:267px;}
+ /*.step4wizard strong{
+        font-family:"TradeGothicLTStd";
+        font-weight:bold;
+    }*/
+    .stepInelwizard  .checkbox strong,.step4wizard .checkbox strong {
+        margin-bottom:5px;
+        display:block;
+    }
+
+    .topLeft-phone,
+    .topRight-phone,
+    .bottomLeft-phone,
+    .bottomRight-phone {
+        display: block;
+        float: none;
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+    .pad-desktop {
+        padding: 5% 12% 2%
+    }
+    .text-center-desktop {
+        text-align: center
+    }
+    .text-left-desktop {
+        text-align: left
+    }
+    .text-right-desktop {
+        text-align: right
+    }
+    .pull-left-desktop {
+        float: left
+    }
+    .pull-right-desktop {
+        float: right
+    }
+    .mobilebreak {
+        display: none
+    }
+    .row-fluid [class*="span"] .pullLeft {
+        margin-left: -40px
+    }
+    .pullRightMore {
+        margin-right: -40px
+    }
+
+        #wizard .accordion-group {
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        border-width: 0;
+        display:none;
+    }
+
+            #wizard .accordion-group.active {
+                height: auto;
+                display: block;
+            }
+
+        #formactions {
+        /* display: none; */
+        font-size: 14px;
+        margin-top: 40px;
+        position: relative;
+        }
+
+         
+
+}
+
+/*#################################*/
+/*##########   FORM ELEMENTS ########*/
+/*#################################*/
+.radio, .checkbox{padding-left:0px;}
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    color: #222
+}
+.lt-ie9 input[type="password"] {font-family: Arial;}
+#wizard label[class*="input-"].radio
+ {
+    position: relative;
+    padding-left: 18px;
+}
+#wizard label[class*="input-"].checkbox{
+    position: relative;
+    padding-left: 0px;
+}
+#wizard label[class*="input-"].radio input,
+#wizard label[class*="input-"].checkbox input {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+select {
+            border-radius: 2px;
+            color: #222222;
+            vertical-align: middle;
+            font-size: 16px !important;
+            line-height: 16px;
+            background-color: #ffffff;
+             border: 1px solid #bfbfbf;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            background-size: 32px 40px;
+            /* CUSTOMIZED DWOPDOWN ARROW
+            background-image: url('/Content/Images/select-down.gif');
+            background-repeat: no-repeat;
+            background-position: right;
+            -webkit-appearance: none;
+                padding-right: 32px;
+            */
+           
+        }
+
+
+input,
+select {
+    font-size: 16px !important
+}
+input[disabled] {
+    background-color: #dbe7ee
+}
+label.disabled,
+label.disabled strong,
+label.disabled small {
+    color: #999 !important
+}
+/*====== CUSTOMIZED CHECKBOX/RADIO BUTTON =======*/
+.checkbox label, 
+.radio label, radioLabel{  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    line-height: 18px;
+    font-size: 16px;
+}  
+
+
+.checkbox input[type=checkbox] {  
+    display: none;  
+}  
+
+input[type=radio] {  
+    display: none;  
+}
+
+.radio label:before, .checkbox label:before {  
+    content: " ";  
+    display: inline-block;  
+    width: 16px;  
+    height: 16px;  
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    top: 2px;  
+    background-color: #FFF;  
+    /*box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);*/  
+    border: 1px solid rgba(0, 0, 0, 0.3);
+
+}  
+
+.radio label:before {  
+    border-radius: 8px;  
+} 
+
+.checkbox label:before {  
+    border-radius: 2px;    
+}  
+
+input[type=checkbox]:checked + label:before {  
+    content: "\2713";  
+    /*text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);*/  
+    font-size: 18px;  
+    color: #222222;  
+    text-align: center;  
+    line-height: 15px;  
+}
+
+input[type=radio]:checked + label:before {  
+    content: "\2022";  
+    color: #222222;  
+    font-size: 17px;  
+    text-align: center;  
+    line-height: 16px;  
+}  
+.checkbox small {display: block;
+margin-top: 5px;
+font: 14px/16px "TradeGothicLTStd";
+padding-left:0;
+}
+
+.unsubscribe .checkbox label, .unsubscribe .radio label, .unsubscribe .radioLabel { font-size: 16px;}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: GrayText;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+     color: GrayText;
+}
+
+input.placeholder, input.placeholder:focus{  /* IE 8*/
+ color: GrayText;
+}
+/*#################################*/
+/*##########   MOBILE FORM ELEMENTS ########*/
+/*#################################*/
+ @media screen and (min-width: 320px) and (max-width: 640px) {
+    input, select {
+        /*zoom: 1;*/
+    }
+
+    input[type='checkbox'], input[type="radio"] {
+        /*zoom: 2;*/
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+    /* Styles */
+    #wizard label[class*="input-"].radio input, #wizard label[class*="input-"].checkbox input {
+        position: initial;
+    }
+     /* PREVENT iOS Auto Zoom */
+     select:focus,
+      textarea:focus,
+      input[type="text"]:focus {
+        font-size: 16px !important;
+        /*zoom:1;*/
+     }
+
+
+
+    input,
+    select {
+        /*font-size: 26px !important;
+        line-height: 40px !important;*/
+        height: 70px !important;
+        /*margin: 0 0 60px !important;*/
+        border-radius: 2px !important;
+        padding-top: 15px !important;
+        color: #555555;
+    }
+
+    select {
+        background-size: 32px 40px;
+        padding-right: 32px;
+        padding-top: 10px !important;
+        /*-webkit-appearance: none;
+        background-image: url('/Content/Images/select-down.gif');*/
+        background-position: right;
+        background-repeat: no-repeat;
+    }
+
+    label {
+        font-size: 36px;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+        max-height: 13px;
+        margin-left: 0;
+    }
+
+    .radio label:before , .checkbox label:before {
+        width: 30px;
+        height: 30px;
+        
+    }
+
+    
+    .radio label:before {
+        border-radius: 15px;
+        font-size: 24px;
+        top:0px;
+    }
+   input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before {
+        font-size: 28px;
+        text-align: center;  
+        line-height: 28px;  
+        }
+
+    .radioLabel {margin:20px 0;}
+    .checkbox small {text-align: left; font:16px/18px "TradeGothicLTStd";padding-left:0; line-height:18px;}
+    .radio label, .checkbox label {padding-left:50px;}
+    
+    .well { padding:60px 25px 40px;}
+    .unsubscribe .well { padding:60px 25px 40px !important;}
+    .unsubscribe .blackbox_warning .well { padding:10px 10px 0 !important;}
+    .savingscard #wizard .form.well.pad {padding: 9px 25px 0px;}
+    .well a, .well a:hover {font-size:28px;margin-top: 20px; padding-right: 40px;}
+    
+    .well .checkbox {width:70%;}
+    .well .radioLabel {font:26px/30px "TradeGothicLTStd";  display:inline-block;  margin-left:0px; margin-top:5px;margin-right:90px;}
+    .well button.btn {margin:0;right:0; width:100%;}
+    .unsubscribe .well button.btn {margin-top:20px;right:10%;}
+    .well .input-large {width:100%;}
+    .well.reset label.span6 {width:100%; margin-left:0;}
+
+    .well .confirmation-cta { position:relative; padding:20px 0 60px 0;}
+    .well .confirmation-cta a, .well .confirmation-cta a:hover, .well .confirmation-cta a:active, .well .confirmation-cta a:visited{font-size:28px; }   
+    .well .confirmation-cta .golink.pull-right { float:none;}
+    .savingscard .well a{margin-top:0px; padding-right:0px; }
+    .unsubscribe .checkbox label, .unsubscribe .radio label, .unsubscribe .radioLabel { font-size: 26px;}
+   
+}
+
+
+.confirmation-cta {padding:20px 40px;}
+.confirmation-cta .golink {color: #b5121b; font-style:italic;text-shadow: 1px 1px rgba(255,255,255,.91);font-size:22px;padding-left: 20px; background: url(/Content/Images/confirmation/cta-arrow-red-left.png) no-repeat center left; text-decoration:none;}
+.confirmation-cta .golink:hover, .confirmation-cta .golink:active {color: #b5121b;font-size:22px; padding-left: 20px; background: url(/Content/Images/confirmation/cta-arrow-red-left-hover.png) no-repeat center left;}
+.confirmation-cta .golink.pull-right {padding-right: 25px; background: url(/Content/Images/confirmation/cta-arrow-red-right.png) no-repeat center right;}
+.confirmation-cta .golink.pull-right:hover, .confirmation-cta .golink.pull-right:active {padding-right: 25px; background: url(/Content/Images/confirmation/cta-arrow-red-right-hover.png) no-repeat center right;}
+.well p.thankyou-text {font:70px/40px "TradeGothicW01-BoldCn20 675334", sans-serif; color:#e5412c;text-align: center; margin:40px 0; text-shadow: 0 1px #ffffff;}
+.well .thankyou-small{font:24px/28px "TradeGothic-W01-Cn18", sans-serif; color:#222222;text-shadow: none;text-align: center;margin-bottom:-7px;}
+.well .thankyou-small p {font:24px/28px "TradeGothic-W01-Cn18", sans-serif; color:#222222;text-shadow: none;text-align: center; margin-bottom:16px; }
+.well .desktop-wide-well{width:665px; margin-left:-50px;}
+.well .thankyou-small a, .well .thankyou-small a:active, .well .thankyou-small a:link{border-color:#222222; text-decoration-color:#222222; text-decoration:underline; color: #222222; padding:0px; }
+.well .thankyou-small strong{font-family:"TradeGothicW01-BoldCn20 675334"; margin-bottom:0px; display:block;}
+.savingscard .thankyou-text a{color:#222222;}
+.thank-you-card img{display:block; margin:40px auto -30px auto;}
+.well a.thankyou-small{padding-top:20px; padding-right:0px;}
+
+
+
+
+
+@media screen and (max-width: 640px) and (min-width: 320px){ 
+    .well .thankyou-small strong{margin-bottom:26px;}
+    .well .thankyou-small a, .well .thankyou-small a:active, .well .thankyou-small a:link{font: 24px/28px "TradeGothic-W01-Cn18", sans-serif; margin-top:-5px; display:inline-block;}
+    .well .btn.red, .well .btn.red:focus, .well .btn.red:active {
+        font-size: 34px !important;
+}
+    p {
+        font: 26px "TradeGothicLTStd", sans-serif; 
+    /*font: 26px "TradeGothic-W01-Cn18", sans-serif;*/
+}
+.well p{font: 26px "TradeGothicLTStd", sans-serif; line-height:30px;}
+.well p.thankyou-text{margin: 40px 0 20px 0;}
+.well a.thankyou-small{margin-bottom:20px;}
+input[placeholder]{line-height:normal;}
+.well .desktop-wide-well{width:auto; margin:0;}
+
+}
+/*#################################*/
+/*##########   END OF FORM ELEMENTS ########*/
+/*#################################*/
+
+
+
+/* =====> All Mobile =====> Search for */
+/* =====> All Mobile =====> KANGAROO */
+/* =====> All Mobile =====> to find this*/
+ @media screen and (min-width: 320px) and (max-width: 640px) {
+    
+    sup{font-size:60%; top:-10px;}
+
+
+    .container_content .content{
+        width:100%;
+        padding: 0 15px 0 15px;
+    }
+
+
+    .fluid-phone {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .fluid-all-phone {
+        padding: 0 !important;
+    }
+
+    .fluid-Vertical-phone {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+   .errorbox span{font-size:22px; line-height:22px;}
+
+    /*#content > *,
+    #wizard > *,
+    .wphone {
+        padding-left: 20px;
+        padding-right: 20px;
+    }*/
+
+    #wizard {
+        width: 100%;
+        margin-bottom:25px;
+    }
+
+    .unsubscribe #wizard .form.well,
+    .unsubscribe #wizard .form.well .well {
+        padding-top:45px !important;
+        padding-bottom:20px !important;
+    }
+
+    
+    
+    .text-center-phone {
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-left-phone {
+        text-align: left;
+    }
+
+    .text-right-phone {
+        text-align: right;
+    }
+
+    .pull-left-phone {
+        float: left;
+    }
+
+    .pull-right-phone {
+        float: right;
+    }
+
+    .well .well [class*="span"] {
+        margin-top: 5px;
+    }
+
+    .errorbox {
+        margin: 20px -21px 40px;
+        padding: 30px;
+    }
+
+    .errorbox p {
+        line-height: 24px;
+        padding-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .errorbox li {
+        line-height: 24px;
+        padding-bottom: 10px;
+        font-size: 22px;
+    }
+
+    /*ul {margin-bottom: -10px;}*/
+    #importinfo {
+        margin: 20px -21px 40px;
+        padding: 30px;
+        line-height: 34px;
+        text-indent: -20px;
+    }
+
+    .android #importinfo {
+        font-size: 27px;
+        line-height: 30px;
+        text-indent: 0px;
+    }
+
+    .android #DoImport_0 {
+        height: 10px;
+    }
+
+    [class*="Taking_"] {
+        margin: 20px 0 40px;
+        padding: 30px;
+    }
+    #step1 .radioLabel {
+        
+        margin-top: 6px;
+    }
+    .step2 select.input-medium {
+        width: 260px;
+    }
+    #wizard.step2wizard #State {
+        width: 260px;
+         /*margin-bottom:30px;*/
+       }
+    #wizard.step2wizard #ZipCode {
+        width: 260px;
+        float:right;
+        margin-right:0;
+        /*margin-bottom:30px;*/
+        }
+    #step2 #DateOfBirth_Month{
+        width:220px;
+    }
+    #step2 #DateOfBirth_Day {
+        width: 170px;
+        }
+    #step2 #DateOfBirth_Year {
+    width: 130px;
+    }
+    #step3 .control-group.form-inline .checkbox.input-medium {
+        width: 200px;
+    }
+
+    #step3 .control-group.form-inline .input-medium {
+        width: 200px;
+    }
+   
+    
+    #step3 div#eligibilitybox{
+		width:520px;
+		max-width: 520px;
+	}
+	
+    #step3 .radioLabel {
+        margin-left: 0 !important;
+    }
+    #step3 span.radioLabel {
+        line-height: 15px;
+        padding: 15px 0px;
+    }
+    #step3 span.radioLabel small{
+        font-size: 19px !important;
+        line-height: 20px !important;
+        white-space:nowrap;
+        margin-top: 10px !important;
+    }
+    #step3 .checkboxes span.radioLabel {
+        padding-top: 0px;
+    }
+
+    #step3 .radio{
+        margin-bottom:60px;
+    }
+
+    #step3 small {
+        font: 18px TradeGothicLTStd-Cn18;
+        color: #464646;
+        line-height: 4px;
+    }
+     #step4 .control-group.row-fluid .checkbox.span7 {
+        padding-left: 0
+    }
+    #step4 input[type="checkbox"], .unsubscribe  input[type="checkbox"]{
+        margin-left: 0;
+    }
+
+    #step4 .form-inline{height:35px;}
+
+   
+    .formnavigation .unsubscribe{
+        margin-top:-40px;
+    }
+
+    .well button.btn.unsubscribe, .well button.btn.unsubscribe:focus, .well button.btn.unsubscribe:active {
+        float:none;
+       /* width: 70%;
+        margin: 45px 0px 40px 70px !important;*/
+    }
+
+
+    .btn-prev{display:inline-block; margin-top:20px;}
+   
+    ul.bullet li {
+        background: url(/Content/Images/bullet.png) no-repeat 0px 13px;
+        padding-left: 12px;
+    }
+     [class*="Taking_"] {
+        margin: 20px 0 40px;
+        padding: 30px;
+    }
+
+    .Taking_7 {
+    margin: 85px 0px 5px 0px;
+    }
+   
+    .form.accordion-group {
+        border: 0
+    }
+    .accordion-body label {
+        font-size: 28px;
+        margin: 10px 0px;
+        /*letter-spacing: -1.5px;*/
+        line-height: 28px;
+    }
+   
+    .radioLabel {
+        font-size: 30px;
+        line-height: 45px;
+        margin-left: 20px;
+    }
+
+    .thank-you-card img{
+        margin:0px auto;
+        width: 370px;
+    }
+
+
+
+    #ifYes{
+        padding-bottom: 10px;
+        color: #909090;
+        display: block;
+    }
+
+	
+    .mobilebreak {
+        display: block
+    }
+
+    .navbar .nav .loginwrap {padding-right: 30px;}
+    .loginFormDiv {padding-left: 45px;}
+
+  
+
+    .form.accordion-group {
+        border: 0;
+    }
+
+    .accordion-body label {
+        font-size: 28px;
+        margin: 10px 0px;
+        /*letter-spacing: -1.5px;*/
+        line-height: 28px;
+    }
+
+    h3.accordion-heading{
+        margin-top:12px;
+    }
+
+    .acccordion-heading.thankyou-big.text-center {
+        line-height: 16px;
+        margin: 20px 0px 0px 0px;
+    }
+
+    .height60px {
+        height: 260px;
+    }
+
+    .fullWidthMobile {
+        width: 98%;
+    }
+
+    .desktop-ty-wrap {
+        width: 100%;
+        display: block;
+        line-height: 20px;
+        margin-top: 20px;
+        font-size: 28px;
+        font-family: TradeGothicLTStd;
+    }
+
+    .padtop50 {
+        padding-top: 50px;
+    }
+
+    .navbar .nav .loginwrap,
+    header.navbar .nav > li > a {
+        padding: 20.5px 15px;
+    }
+
+    .navbar .nav .loginwrap {
+        padding-right: 30px;
+    }
+
+    header {
+        font: 18px TradeGothicLTStd-Cn18;
+        letter-spacing: 0px;
+    }
+
+        header.navbar {
+            margin-bottom: 40px;
+        }
+
+   
+
+    .lastStep {
+        margin-bottom: -7px;
+    }
+
+    .accordion-group {
+        border: none;
+    }
+
+    #eligibilitybox {
+        width: 100%;
+        font-size:23px;
+        margin-left:14px;
+    }
+
+    span.ifYes {
+        margin-right: 200px;
+        padding: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    #wizard .form.well h3 {
+        font-size: 38px;
+    }
+
+    #wizard .form.well .control-group {
+        font-size: 28px;
+    }
+
+    #wizard .form.well .well {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+        #wizard .form.well .well li {
+            margin-bottom: 10px;
+            line-height: 32px;
+        }
+
+        #wizard .form.well .well [class*="span"] {
+            margin-top: 15px;
+        }
+
+    .well.wphone.pad.form {
+        padding-top: 9px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+        margin-bottom: -5px;
+    }
+      #wizard   .well button.red {margin:45px 0 40px 0 !important;}
+      .noneligible #wizard .well .btn.red{margin:5px 0 40px 0 !important;}
+     .noneligible #wizard .well .btn.blue{margin:45px 0 0px 0 !important;}
+
+    body.non-activation .well.wphone.pad.form > .control-group {
+        padding-top: 30px;
+        margin-bottom: -30px;
+    }
+
+    body.non-activation .well.wphone.pad.form {
+        padding-bottom: 30px;
+    }
+
+    body.non-activation label {
+        margin-left: -20px;
+    }
+
+    body.non-activation.error label {
+        margin-left: 0px;
+    }
+
+    .thank-you-card {
+        background: url(/Content/Images/arrow-blue-down-mobile.png) 375px 0 no-repeat;
+        padding: 60px 40px 0;
+    }
+
+    .thankyou-big {
+        font-size: 40pt;
+        padding-top: 20px;
+    }
+
+    #wizard .form.well h3.thankyou-big {
+        font-size: 70px;
+        padding-top: 30px;
+    }
+
+    .well .thankyou-small {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .formnavigation span {
+        line-height: 140px
+    }
+    .formnavigation{
+        margin-top: -20px;
+    }
+   
+    /*.pad-desktop.form{
+        background: url("../img/mobile-step-back.png") no-repeat 0 0  transparent;
+        background-size: 100%;
+        }*/
+
+    .well.wphone.pad.form [class*="span"] {
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 40px;
+    }
+    .well.wphone.pad.form .doblabel{ margin-bottom:15px;}
+
+   .well.wphone.pad.form .cardradiofix{
+        margin-bottom: 15px;
+    }
+    .well.wphone.pad.form .cardradiofix [class*="span"]{
+        margin-bottom:20px;
+    }
+
+    .well.wphone.pad.form select,
+    .well.wphone.pad.form input {
+        height: 50px !important;
+        font-size: 25px !important;
+        padding-top: 10px !important;
+    }
+
+    .well.wphone.pad.form input::-webkit-input-placeholder {
+        font-size: 25px;
+    }
+
+    .well .well [class*="span"] {
+        margin-top: 5px
+    }
+    .errorbox,
+    .unsubscribe .errorbox,
+    .unsubscribe .reason .errorbox {
+        margin: 20px -25px 40px -25px;
+        padding: 30px;
+    }
+    .errorbox p {
+        line-height: 24px;
+        padding-bottom: 10px;
+        font-size: 24px;
+    }
+    .errorbox li {
+        line-height: 24px;
+        padding-bottom: 10px;
+        font-size: 22px;
+    }
+    /*ul {margin-bottom: -10px;}*/
+    #wizard.importwizard #importinfo {
+        margin: 20px -21px 40px;
+        padding: 30px;
+        line-height: 34px;
+    }
+    .android #importinfo {
+        font-size: 27px;
+        line-height: 30px;
+        text-indent: 0px;
+    }
+
+ 
+    #wizard .form.well h3 {
+        font-size: 38px;
+        margin-bottom: 15px;
+        margin-left: 2px;
+    }
+    #wizard .form.well .control-group {
+        font-size: 28px
+    }
+    body.NesinaMyprofile .control-group.actions.clearfix {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+    #wizard .form.well .well {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    #wizard .form.well .well li {
+        margin-bottom: 10px;
+        line-height: 32px;
+    }
+    #wizard .form.well .well [class*="span"] {
+        margin-top: 15px
+    }
+    .well.wphone.pad.form {
+        padding-top: 9px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+        /*margin-bottom: -5px;*/
+    }
+    .well.wphone.pad.form form {
+        margin: 0;
+    }
+    .noneligible .well.wphone.pad.form {
+        padding-bottom: 40px;
+    }
+
+
+    .unsubscribe .well.wphone.pad.form form {
+        /*margin-left: 30px;*/
+    }
+
+     .unsubscribe .well.wphone.pad.form form .checkbox {
+         /*margin-left:35px;*/
+
+    }
+    .unsubscribe .radioLabel{
+        margin-right:20px;
+    }
+
+    .errorbox a, .errorbox a:hover,.errorbox a:active {
+        color: #d90303;
+        font: 22px/1.2em "Trade Gothic W01 Light", Arial, sans-serif !important;
+        text-decoration: underline;
+        vertical-align: baseline;
+    }
+
+ 
+    ul.bullet li {
+    /*background: url(../img/bullet.png) no-repeat 0px 13px;*/
+    padding-left: 12px;
+    }
+
+    #step3 small {
+    font: 18px TradeGothicLTStd-Cn18;
+    color: #464646;
+    line-height: 4px;
+    }
+
+    #step3error {
+        margin-left: -51px;
+        margin-right: 0px !important;
+        left: 25px;
+        position: relative;
+    }
+    
+     #step3 .control-group.form-inline .checkbox.input-medium {
+        width: 200px
+    }
+    #step3 .control-group.form-inline .input-medium {
+        width: 240px
+    }
+	#step3 .control-group.form-inline{
+
+	}
+    #step3 .checkboxes span.radioLabel {
+        margin-top:0px;
+    }
+    #step4 p.font32px, #step4 p.font32px a, #step4 p.font32px a:active, #step4 p.font32px a:hover, #step4 p.font32px a.red  {
+        font-size: 28px;
+        line-height: 36px;
+        margin-top:0;
+        padding:0;
+        vertical-align:top;
+    }
+    .android #step4 p.font32px {
+        font-size: 26px;
+        line-height: 28px;
+    }
+    .android #step4 p.font32px a, .android #step4 p.font32px a:active, .android #step4 p.font32px a:hover {
+        font-size: 26px;
+        line-height: 28px;   
+    }
+	
+
+
+
+    /* AAAAAAAAAAAAAA */
+    body.non-activation .well.wphone.pad.form > .control-group {
+        padding-top: 30px;
+        margin-bottom: -30px;
+    }
+    body.non-activation .well.wphone.pad.form {
+        padding-bottom: 30px
+    }
+    body.non-activation label {
+        margin-left: -20px
+    }
+    body.non-activation.error label {
+        margin-left: 0px
+    }
+    .font28px a {
+        font-size: 28px
+    }
+    .font28px {
+        /*margin-top: -30px;*/
+        margin-bottom: -10px;
+    }
+   
+    
+    /*.pad-desktop.form{
+        background: url("../img/mobile-step-back.png") no-repeat 0 0  transparent;
+        background-size: 100%;
+        }*/
+    .header-wrap {
+        background-size: 100%;
+        margin-left: -25px;
+        margin-right: -25px;
+        margin-top: -10px;
+        margin-bottom: -7px;
+    }
+    .header-wrap.open {
+        background: url("/Content/Images/mobile-step-back.png") no-repeat 0 0 transparent;
+        padding: 2px 24px;
+        margin-bottom: 25px;
+        background-size: 100%;
+        /*width: 112%;*/
+    }
+    body.mmhcard .header-wrap.open {
+        margin-bottom: 0px;
+    }
+    body.mmhcard #step1 {
+        height: 350px !important;
+        padding-bottom: 0px;
+    }
+
+    .header-wrap.closed {
+        background: url("/Content/Images/mobile-step-back-c.png") no-repeat 0 0 transparent;
+        padding: 2px 24px;
+        background-size: 100%;
+        
+        height: 93px;
+        vertical-align:top;
+        line-height: 0px;
+
+    }
+    
+	body.is_mobile.NesinaRegistration #wizard.step4wizard  .formnavigation button[type=submit]{
+		position:relative;
+		top:9px;
+	}
+    .stepInelwizard  .checkbox strong,.step4wizard .checkbox strong {
+        margin-bottom:20px;
+        display:block;
+    }
+    
+    .checkBoxWrap2 {
+        padding-left: 10px;
+        padding-right: 70px;
+        display: block;
+    }
+    #nutrisystemLogo {
+        /*padding-left: 45px;*/
+        padding-top: 0px;
+        text-align: center;
+    }
+    #nutrisystemLogo img {
+        width: 390px;
+    }
+    #nutriDisclaimer {
+        line-height: 26px;
+        font-size: 22px;
+        padding-left: 6px;
+        padding-top: 0px;
+        padding-right: 0px;
+    }
+    .nutrisystemunsub .offset1 label.checkbox .unsubInput .nutrilabel {
+    padding-top: 0px;
+    }
+    
+    
+    .control-group.error .control-label {
+        font-size: 19px
+    }
+    .smallspace {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .space {
+        font-size: 8px;
+        line-height: 8px;
+    }
+    	#step4 .checkBoxWrap {
+        display: block;
+        margin-left:0px;
+        line-height:36px;
+    }
+
+   #nutriDisclaimer{
+       padding-left:50px;
+   }
+   
+    /* ========= FIELDSET & Accordion ===========*/
+     #wizard .accordion-group h3 {
+        background: url("/Content/Images/registration_status_progress_m.png") no-repeat left top transparent;
+        background-size: 65px 65px;
+        height: 70px;
+        vertical-align: middle;
+        font-size: 40px;
+        color: #1674A3;
+        border: 0;
+        text-shadow: 0px 1.5px 0px #ffffff;
+        -webkit-transform: translateZ(0);
+    }
+    #wizard .accordion-group h3.active {
+        color: #e5412c;
+
+    }
+    #wizard .accordion-group h3 span.stepname {
+        display: block;
+        vertical-align: middle;
+        line-height: 62px;
+        font-family: "TradeGothicW01-BoldCn20 675334";
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    #wizard .accordion-group h3 span.step {
+        display: none
+    }
+    #wizard .accordion-group h3 span.number {
+        background: url("/Content/Images/registration_status_inactive.png") no-repeat 5px 2px transparent;
+        background-size: 60px 60px;
+        color: #6391a9;
+        display: inline;
+        float: left;
+        font-family: "TradeGothicW01-BoldExte";
+        font-size: 35px;
+        font-weight: normal;
+        height: 47px;
+        line-height: 65px;
+        margin: 0px 30px 0px 0px;
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+        text-indent: 22px;
+        text-shadow: -1px 1px 0px rgba(255, 255, 255, 0.8);
+        -webkit-transform: translateZ(0);
+        width: 65px;
+        height: 65px;
+        z-index: 2;
+    }
+    #wizard .accordion-group h3.active span.number {
+        background: url("/Content/Images/registration_status_active.png") no-repeat 4px 2px transparent;
+        color: #FFFFFF;
+        text-shadow: 1px -2px 0px rgba(0, 0, 0, 0.3);
+        -webkit-transform: translateZ(0);
+        text-indent: 20px;
+        background-size: 60px 60px;
+    }
+
+    #wizard .accordion-group h3.complete span.number {
+        text-indent: -9999em;
+        background: url("/Content/Images/registration_status_complete.png") no-repeat 4px 2px transparent;
+        background-size: 60px 60px;
+    }
+    
+    
+      .accordion-group {
+        border: none;
+        margin-bottom: 9px;
+        border-radius: 4px;
+    }
+    .lastStep{
+        margin-bottom:0px;
+    }
+    
+	fieldset.completed.lastStep div.formbuttons-right{
+		margin-bottom: 50px;
+		clear:both;
+		text-align: right;
+	}
+	fieldset.completed.lastStep div.formbuttons-right form{
+		width:100%;
+	}
+	fieldset.completed.lastStep div.formbuttons-right button{
+		right:0;
+		width:100%!important;
+		right:5px!important;
+	}
+	fieldset.completed.lastStep div#eligibilitybox.notEligibleBox{
+		margin-bottom:25px;
+		margin-top:-100px;
+	}
+    
+   
+    
+}
+
+ @media screen and (min-width: 320px) and (max-width: 640px) {
+     
+     
+     
+       
+    /* THANK YOU WITH CARD - MOBILE ONLY */
+    .thank-you-with-card header,
+    .thank-you-with-card footer,
+    .thank-you-with-card #isi {
+        display: none
+    }
+    .thank-you-with-card .wrapper {
+        margin-top: 20px
+    }
+    .thank-you-with-card h2 {
+        color: #1674a3;
+        font-size: 36px;
+    }
+    .thank-you-with-card p {
+        font-family: Helvetica, Arial;
+        font-size: 20px;
+        padding-top: 5px;
+    }
+    .thank-you-with-card p.bold {
+        font-weight: bold
+    }
+    .thank-you-with-card div.list-items {
+        padding-top: 20px
+    }
+    .thank-you-with-card div.list-item {
+        height: 60px;
+        font-size: 20px;
+        line-height: 20px;
+        vertical-align: middle;
+        display: block;
+        width: 100%;
+        line-height: 20px;
+    }
+    .thank-you-with-card div.number {
+        float: left;
+        height: 60px;
+        width: 60px;
+        background: url("/Content/Images/registration_status_active.png") no-repeat;
+        color: #FFFFFF;
+        text-shadow: 1px -2px 0px rgba(0, 0, 0, 0.3);
+        -webkit-transform: translateZ(0);
+        text-indent: 20px;
+        background-size: 60px 60px;
+        font-size: 30px;
+        vertical-align: middle;
+        line-height: 65px;
+        text-indent: 22px;
+        font-family: TradeGothicLTStd-Bd2;
+        padding-right: 20px;
+    }
+    .thank-you-with-card .card-image {
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .thank-you-with-card .card-image img {
+        width: 100%;
+        border: 0;
+    }
+    .thank-you-with-card .paragraphs h2 {
+        text-transform: uppercase;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin: 0;
+    }
+    .thank-you-with-card .paragraphs p {
+        font-family: Helvetica, Arial;
+        font-size: 20px;
+        padding-top: 0px;
+        padding-bottom: 20px;
+        margin: 0;
+    }
+    .thank-you-with-card .paragraphs p.small {
+        font-family: Helvetica, Arial;
+        font-size: 13px;
+        padding-top: 0px;
+        padding-bottom: 20px;
+        margin: 0;
+        line-height: 20px;
+    }
+   
+
+   
+
+}
+
+
+
+
+/*ANDRIOD SAMSUNG GALAXY 2  */
+@media only screen and (min-device-width : 320px) and (max-device-width : 533px) and (-webkit-device-pixel-ratio: 1.5){
+    footer {
+        min-height: 295px
+    }
+    .copyright p {
+        font-size: 10px !important;
+        line-height: 11px !important;
+    }
+    #wizard h2.page-header {
+        font-family: TradeGothicLTStd-BdCn20 !important;
+        font-size: 22px !important;
+        line-height: 24px;
+        padding-top: 10px;
+    }
+}
+
+/*ANDRIOD Nexus portrait view*/
+@media only screen and (min-device-width : 360px) and (orientation: portrait){
+
+#wizard h2.page-header {
+        font-family: TradeGothicLTStd-BdCn20 !important;
+        font-size: 22px !important;
+        line-height: 22px;
+        padding-top: 10px;
+    }
+
+#wizard p.pagecontent {
+        font-size: 12px !important;
+        line-height: 12px;
+    }
+}
+
+/*@media (orientation: landscape) { body { -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); }}*/
+
+/* Invalid Card */
+.invalidCard .pad { box-sizing: border-box; padding: 10% 10% 0%; }
+.invalidCardText { text-align: center; }
+.invalidCard .formnavigation a.btn-prev { display: inline-block !important; }
+@media (max-width: 767px){
+    .invalidCard .pad { padding: 5% 20px 2%; }
+    .invalidCardText { font-size: 34px; line-height: 1; width: 450px; margin: 0 auto; }
+}
+
+/* New Card */
+.newCard { margin-top: 30px; text-align: center; position: relative; }
+.newCard h4, .newCard a { color: #222222; }
+
+
+/*#################################*/
+/*##########   UNSUBSCRIBE ########*/
+/*#################################*/
+
+.unsubscribe .input-large{float:left;}
+.unsubscribe .rightside{float:right;}
+
+
+.unsubscribe .checkbox {
+width: 320px;
+
+}
+@media (max-width: 768px) {
+    .unsubscribe .well.wphone.pad.form [class*="span"]{
+        margin-bottom:20px;
+    }
+
+    .unsubscribe .well .radioLabel{
+       /* margin-left:60px;*/
+    }
+    .unsubscribe .well input[type="checkbox"]{
+        zoom:3;
+        margin-top:0px;
+    }
+
+
+    .unsubscribe .checkbox  {
+        padding: 0;
+        float:none;
+        display:inline-block;
+        width:100%;
+    }
+
+    .unsubscribe #wizard > .well.wphone {
+        padding: 30px 50px !important;
+    }
+
+    .btn,
+    .btn:hover,
+    .btn:focus,
+    .btn:active {
+        margin: 45px 0px 40px 0px !important;
+        padding: 12px 70px 12px 70px !important;
+        font-size: 34px !important;
+        line-height: 46px !important;
+        -webkit-border-radius: 55px !important;
+        -moz-border-radius: 55px !important;
+        border-radius: 55px !important;
+        *margin-left: .6em;
+    }
+    .btn.squeezed, .btn.squeezed:hover, .btn.squeezed:focus,.btn.squeezed:active {
+        padding: 12px 10px 5px 10px !important;
+        letter-spacing: -1px !important;
+        font-size: 28px !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+/*========= IE 8 Fixes =========*/
+HTML.ie8 #wizard .well.form{
+     background-color: #e3eef5;
+     filter:none;
+}
+HTML.ie8 FIELDSET.accordion-group DIV.closed{
+    display:none;
+}
+
+HTML.ie8 FIELDSET.accordion-group{
+    border:0;
+}
+
+/*  DISABLE Customized Radiobutton and checkbox*/
+HTML.ie8  .radio LABEL:before, HTML.ie8 .checkbox LABEL:before{
+    display:none;
+}
+
+HTML.ie8  .radio label,HTML.ie8 .checkbox LABEL{
+    position:initial;
+    float:left;
+    padding:0 5px;
+}
+HTML.ie8  .radio label{
+    margin-left:-5px;
+}
+HTML.ie8 .noneligible .checkbox LABEL, HTML.ie8 .step4 .checkbox LABEL {
+   /*margin-top:0;*/ 
+}
+
+HTML.ie8 .noneligible .checkbox strong, HTML.ie8 .step4 .checkbox strong {
+   display:block;
+}
+
+HTML.ie8 .checkbox LABEL {
+    margin:0;
+    display:inline-block;
+    padding-left:25px;
+    margin-top:-18px;
+}
+
+HTML.ie8 .radio INPUT[type='radio']{
+    display:block;
+    margin-left:0;
+}
+HTML.ie8 .checkbox INPUT[type=checkbox]{
+        display:inline-block;
+        margin-left:0px;
+}
